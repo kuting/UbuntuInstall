@@ -18,7 +18,18 @@ if (($EUID != 0)); then
 	exit
 fi
 
+apt-get update && apt-get upgrade  
+apt-get install shutter
+apt-get install -y git-core
+apt-get ipython ipython3
+apt-get install calibre
+apt-get install meld
 
+echo "VirtualBox 4.2"
+
+wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" >> /etc/apt/sources.list'
+apt-get update && apt-get install virtualbox-4.2
 
 echo "Downloading Aptana Studio 3"
 
